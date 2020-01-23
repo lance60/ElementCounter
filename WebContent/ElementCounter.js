@@ -104,7 +104,17 @@ function parseRange(input)
 			}
 		}
 		
-		return new Range(parseInt(minStr), parseInt(maxStr), delimitedModifier[1]);
+		var minInt = parseInt(minStr);
+		var maxInt = parseInt(maxStr);
+		
+		if(minInt > maxInt)
+		{
+			var temp = maxInt;
+			maxInt = minInt;
+			minInt = temp;
+		}
+		
+		return new Range(minInt, maxInt, delimitedModifier[1]);
 	}
 	else
 	{
@@ -114,7 +124,8 @@ function parseRange(input)
 
 function countInput(input)
 {
-	var delimitedInput = input.split(",");
+	var sanitizedInput = input.replace(/\s+/g, '');
+	var delimitedInput = sanitizedInput.split(",");
 	var count = 0;
 	
 	// Since delimitedInput's minimum length is 1, this is necessary in order to check
