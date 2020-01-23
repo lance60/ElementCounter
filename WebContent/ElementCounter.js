@@ -44,7 +44,7 @@ class Range
 			min++;
 		}
 		
-		for(i = min; i <= max; i+= this.step)
+		for(var i = min; i <= max; i+= this.step)
 		{
 			count++;
 		}
@@ -67,7 +67,7 @@ function isValidInput(input)
 {
 	// Explicitly treating input as array because input[i] is apparently unsupported for some browsers
 	var inputChars = input.split("");
-	for(i = 0; i < inputChars.length; i++)
+	for(var i = 0; i < inputChars.length; i++)
 	{
 		if(isNaN(parseInt(inputChars[i])))
 		{
@@ -117,8 +117,9 @@ function countInput(input)
 	var delimitedInput = input.split(",");
 	var count = 0;
 	
-	for(i = 0; i < delimitedInput.length; i++)
+	for(var i = 0; i < delimitedInput.length; i++)
 	{
+		console.log(i);
 		if(delimitedInput[i].indexOf("-") != -1)
 		{
 			var range = parseRange(delimitedInput[i]);
