@@ -117,17 +117,22 @@ function countInput(input)
 	var delimitedInput = input.split(",");
 	var count = 0;
 	
-	for(var i = 0; i < delimitedInput.length; i++)
+	// Since delimitedInput's minimum length is 1, this is necessary in order to check
+	// if the input is truly empty.
+	
+	if(delimitedInput.length > 1 || delimitedInput[0] != "")
 	{
-		console.log(i);
-		if(delimitedInput[i].indexOf("-") != -1)
+		for(var i = 0; i < delimitedInput.length; i++)
 		{
-			var range = parseRange(delimitedInput[i]);
-			count += range.CountAuto();
-		}
-		else
-		{
-			count++;
+			if(delimitedInput[i].indexOf("-") != -1)
+			{
+				var range = parseRange(delimitedInput[i]);
+				count += range.CountAuto();
+			}
+			else
+			{
+				count++;
+			}
 		}
 	}
 	
