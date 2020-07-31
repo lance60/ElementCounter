@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Element Counter</title>
+  </head>
+  
+  <body>
+    <h1>Element Counter</h1>
+    <script src="https://cdn.jsdelivr.net/gh/lance60/ElementCounter@1.0.2/WebContent/ElementCounter.min.js"></script>
+    
+    <p>Enter set of numbers, separated by comma. Range can be defined as a-b_x, where x can be 'e' for even and 'o' for odd: </p>
+    <form onsubmit="runScript(); return false">
+      Input: <input type="text" id="userInput">
+      <input type="submit" value="Submit">
+    </form>
+    
+    <p id="output">Output: </p>
+    
+    <br>
+    
+    <a href="https://github.com/lance60/ElementCounter" target="_blank">GitHub</a>
+	
+	<br>
+	
+	<a href="https://lance60.github.io/">Back to main</a>
+    
+    <script>
+      function runScript()
+      {
+        var outStr = "Output: ";
+        try
+        {
+          outStr += countInput(document.getElementById("userInput").value);
+        }
+        catch(err)
+        {
+          outStr += "Error has occured (" + err.message + ")";
+        }
+        document.getElementById("output").innerHTML = outStr;
+      }
+    </script>
+    
+  </body>
+</html>
