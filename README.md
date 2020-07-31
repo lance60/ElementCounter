@@ -5,4 +5,3 @@
 - The input set has no restriction on what the elements should be, but only integers are supported when defining ranges inside the input set. 
 - When defining range, `_e` or `_o` can be appended to count only even or odd integers respectively.
 - Useful for counting the number of questions in your assignment.
-- This branch is the javascript implementation so that it can be embedded in a website.
